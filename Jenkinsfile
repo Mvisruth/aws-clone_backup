@@ -15,10 +15,25 @@ pipeline {
             }
         }
 
-        stage('Build') {
+        stage('Build Application') {
             steps {
-                echo 'GitHub checkout and Docker verification succeeded.'
+                sh 'docker build -t aws-clone:latest -f Dockerfile .'
             }
+        }
+
+        stage('Verify Image') {
+            steps {
+                sh 'docker image inspect aws-clone:latest'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Application Docker image built successfully!'
+        }
+        failure {
+            echo 'Pipeline failed. Check Console Output for details.'
         }
     }
 }
