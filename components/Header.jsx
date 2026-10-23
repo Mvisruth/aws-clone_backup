@@ -22,13 +22,13 @@ export default function Header() {
       <div className="header-logo-container">
         <a href="#aws-home" className="logo-link" aria-label="Amazon Web Services">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          {/* <img
+          <img
             src="/aws-logo.png"
             alt="Amazon Web Services"
             className="aws-header-logo"
             width={84}
             height={51}
-          />  */}
+          /> 
         </a>
       </div>
     </header>
